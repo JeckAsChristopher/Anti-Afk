@@ -52,6 +52,18 @@ toggleButton.TextColor3 = Color3.new(1, 1, 1)
 toggleButton.Shape = Enum.ButtonStyle.Round
 toggleButton.Parent = gui
 
+-- Create a label for the success message
+local successMessage = Instance.new("TextLabel")
+successMessage.Text = "Anti-AFK is Enabled!"
+successMessage.Font = Enum.Font.GothamBold
+successMessage.TextSize = 16
+successMessage.Size = UDim2.new(0.8, 0, 0, 40)
+successMessage.Position = UDim2.new(0.1, 0, 0.8, 0)
+successMessage.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+successMessage.TextColor3 = Color3.new(1, 1, 1)
+successMessage.Visible = false
+successMessage.Parent = frame
+
 -- Variables
 local antiAFKActive = false
 local player = game.Players.LocalPlayer
@@ -76,6 +88,7 @@ btnEnable.MouseButton1Click:Connect(function()
     btnEnable.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
     btnDisable.Text = "Disable Anti-AFK"
     btnDisable.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    successMessage.Visible = true  -- Show success message
 end)
 
 -- Disable Anti-AFK
@@ -85,6 +98,7 @@ btnDisable.MouseButton1Click:Connect(function()
     btnEnable.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
     btnDisable.Text = "Anti-AFK Disabled"
     btnDisable.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+    successMessage.Visible = false  -- Hide success message
 end)
 
 -- Toggle button to show/hide the GUI
